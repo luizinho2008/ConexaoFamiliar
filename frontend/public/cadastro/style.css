@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.cabecalho
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ebebeb;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+nav ul li {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+}
+nav ul li a {
+    position: relative;
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+}
+a:hover {
+    color: #DF1C00; 
+}
+.menu ul
+{
+    display: flex;
+}
+.menu ul li
+{
+    list-style: none;
+    margin: 20px;
+}
+.menu ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #ff9900;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.menu ul li a:hover::after {
+    transform: scaleX(1);
+}
+.menu
+{
+    color: rgb(247, 170, 4);
+}
+.corbranca
+{
+    color: white;
+}
+.logo
+{
+    width: 30px;
+    margin-left: 10px;
+}
+
+.logo img
+{
+    width: 50px;
+}
+.fotointro img{
+    max-width: 100%;
+}
+.bloco1
+{
+    background-color:#EB5600;
+    display: flex;
+    justify-content:space-between;
+    height: 70px;
+}
+.titulo
+{
+    font-size: 30px;
+}
+.texto
+{
+    margin: 20px 0px 0px 300px;
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.square {
+    display: flex; /* Adiciona flexbox nos quadrados */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    width: 200px;
+    height: 200px;
+    background-color: #EB5600;
+    margin: 40px;
+    color: white; /* Cor do texto */
+    font-size: 16px; /* Tamanho da fonte */
+    border-radius: 10px;
+    overflow: hidden; /* Garante que a imagem não ultrapasse os limites do quadrado */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adiciona transições suaves */
+}
+
+.speech-bubble {
+    display: flex; /* Adiciona flexbox nos quadrados e balões */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    width: 200px;
+    height: 200px;
+    background-color: #EB5600;
+    margin: 40px;
+    color: white; /* Cor do texto */
+    font-size: 16px; /* Tamanho da fonte */
+    border-radius: 10px; /* Arredonda as bordas */
+    position: relative; /* Para permitir o uso de ::after */
+    overflow: hidden;  /* Adicionado overflow: hidden */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajusta a transição */
+}
+
+.square img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta a imagem para cobrir o quadrado */
+    border-radius: 10px; /* Arredonda as bordas das imagens */
+}
+
+.triangle {
+    position: absolute;
+    bottom: -28px; /* Ajuste para posicionar o triângulo fora do balão */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 20px solid #4CAF50;
+}
+
+.square-link {
+    text-decoration: none; /* Remove a decoração do link */
+}
+
+.square:hover, .speech-bubble:hover{
+    transform: scale(1.25); /* Aumenta levemente o tamanho do quadrado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Adiciona uma sombra */
+}
+
+
+.speech-bubble img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.form {
+    margin-top: 130px;
+    margin-left: 300px;
+}
+input {
+    width: 75%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    border: 3.5px solid #ff9900;
+    font-size: 17.5px;
+    outline: none;
+}
+button {
+    background-color: #EB5600;
+    border: none;
+    width: 75.5%;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+#nomeerro, #cpferro, #idadeerro {
+    color: white;
+    font-size: 17.5px;
+    display: none;
+    background-color: red;
+    padding: 5px;
+    width: 795px;
+    border-radius: 5px;
+}

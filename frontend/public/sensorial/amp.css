@@ -1,0 +1,35 @@
+/* Container principal */
+.container {
+    margin: 80px;
+    padding: 40px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1));
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Imagem */
+  .image {
+    float: left;
+    margin-right: 20px;
+    width: 200px;
+    height: 150px;
+    border-radius: 10px;
+  }
+  
+  /* Texto */
+  .text {
+    padding: 20px;
+  }
+  
+  /* Botão de fechar */
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+  }
+  
+  .close:hover {
+    color: red;
+  }
+

@@ -1,0 +1,197 @@
+/* Menu e Rodapé */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.cabecalho
+{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ebebeb;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+nav ul li {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+}
+nav ul li a {
+    position: relative;
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+}
+a:hover {
+    color: #DF1C00; 
+}
+.menu ul
+{
+    display: flex;
+}
+.menu ul li
+{
+    list-style: none;
+    margin: 20px;
+}
+.menu ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #ff9900;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.menu ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+.logo
+{
+    width: 60px;
+}
+.logo img
+{
+    margin: 0px;
+    width: 100%;
+}
+.rodape
+{
+    background-color: #000000;
+    color: #fff;
+    padding: 20px;
+    width: 100%;
+    margin-bottom: 0px;
+}
+/* ---------------------------------------------------------------------------------------------------- */
+/* titulo */
+.titulo
+{
+    background-color: #EB5600;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    max-width:100%;
+    margin-top: 90px;
+    color:white;
+}
+/* ---------------------------------------------------------------------------------------------------- */
+/* linha*/
+.horizontal
+{
+    margin-top: 50px;
+    width: 90%;
+    border-bottom: 4px solid #fac48383;
+    margin-left: 70px;
+}
+.back
+{
+    background-color: #fff5e3;
+}
+/* ---------------------------------------------------------------------------------------------------- */
+/* icones/quadrados*/
+.quadrado
+{
+    height: 250px;
+    width: 250px;
+    display: inline-block;
+    margin: 50px;
+    border: 3px solid #e6e6e6;
+    background-color: #ffe2c3;
+    border-radius: 25px;
+    transition: 0.4s ease-in-out transform, 0.4s ease-in-out box-shadow;
+}
+.icon
+{
+    width: 70px;
+    height: 70px;
+    max-width: 100%;
+    margin-left: 90px;
+    margin-top: 20px;
+}
+
+.centro
+{
+    display: flex;
+    justify-content: center;
+    color: #EB5600;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.fonte
+{
+    font-size: 20px;
+}
+.fonte2
+{
+    font-size: 18px;
+}
+/* ---------------------------------------------------------------------------------------------------- */
+/* sombra/transições/botões*/
+.sombra
+{
+    box-shadow: 15px  15px  20px rgba(0, 0, 0, 0.058), -15px  -10px  20px rgba(0, 0, 0, 0.058);
+}
+
+.sombra:hover{
+    box-shadow: 0 20px 40px -10px rgba(195, 35, 32, 0.5);
+    transition : box-shadow ease-out 0.5s;        
+    transform: scale(1.2);
+}
+
+.botao {
+    display: none; /* Esconder o botão inicialmente */
+    position: absolute;
+    width: 150px;
+    height: 25px;
+    border-radius: 20px;
+    background-color: #f37e00a6;
+    text-decoration: none;
+    margin-left: 50px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.273);
+    border: 3px solid #f37e00a6;
+    color: rgba(255, 255, 255, 0.908);
+}
+
+/* Mostrar o botão quando o cursor estiver sobre o quadrado */
+.quadrado:hover .botao 
+{
+    display: block;
+
+}
+.botao:hover {
+    color: rgba(255, 255, 255, 0.671);
+    background-color: #EB5600;
+    border: 2px solid #EB5600; /* Mesmo valor da cor de fundo */
+    transform: scale(1.1); /* Aumentar um pouco o tamanho no hover */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+.link-chat {
+    border: none;
+    height: 40px;
+    font-size: 17.5px;
+    border-radius: 10px;
+    margin-left: 20px;
+    background-color: #DF1C00;
+    color: white;
+    cursor: pointer;
+}
+  
+/* ---------------------------------------------------------------------------------------------------- */
