@@ -8,60 +8,105 @@
     <link rel="stylesheet" type="text/css" href="./estilo/style.css">
 </head>
 <body>
-    <section class="principal">
+
+    <section>
         <header class="cabecalho">
             <div class="logo">
-                <img src="./imagens/cf.png" alt="Logo de uma árvore">
+                <img src="./imagens/cf.png" alt="Logo">
             </div>
             <nav class="menu">
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#Cadastro">Cadastro</a></li>
-                    <li><a href="#Sobre o projeto">Sobre o projeto</a></li>
-                    <li id="toChat"><a href="/cad">Faça cadastro para poder usar o Chat</a></li>
+                    <li><a href="#Sobre">Sobre o projeto</a></li>
+                    <li><a href="#Secoes">Seções</a></li>
+                    <li><a href="#Contato">Contato</a></li>
+                    <li><a href="/cad">Faça cadastro para utilizar o fórum</a></li>
                 </ul>
             </nav>
         </header>
 
-        <section class="intro">
+        <section class="intro"  id="home">
             <div class="fotointro">
-                <img src="imagens/intro.jpg" alt="intro">
+                <img src="imagens/intro.png" alt="intro">
             </div>
         </section>
 
-        <section class="bloco1">
-            <div class="texto corbranca">
-                <h1 class="titulo">SOBRE QUAL TIPO DE DEFICIÊNCIA VOCÊ QUER SABER MAIS?</h1>
-                <P></P>
+        <div class="linha"></div>
+
+        <section class="infos"  id="Sobre">
+            <div class="fotointro">
+                <img src="imagens/infos.png" alt="intro">
             </div>
         </section>
-        
-        <div class="container">
-            <a href="/fisica" class="square-link">
-                <div class="square"><img src="imagens/fisicas.jpg" alt="cadeirante"></div>
-            </a>
-            <a href="/neurodivergente" class="square-link">
-                <div class="square"><img src="imagens/neurodivergentes.jpg" alt="autista"></div>
-            </a>
-            <a href="/sensorial" class="square-link">
-                <div class="square"><img src="imagens/sensoriais.jpg" alt="cego"></div>
-            </a>
-            <a href="/intelectual" class="square-link">
-                <div class="square"><img src="imagens/intelectuais.jpg" alt="down"></div>
-            </a>
+
+        <div class="linha"></div>
+
+        <div class="container" id="Secoes">
+            <h1>DEFICIÊNCIAS</h1>
+            <div class="grid">
+                <div class="card fisicas">
+                    <h2>FÍSICAS</h2>
+                    <a href="/fisica">
+                        <img src="imagens/fisica.png" alt="fisica" class="img.sec">
+                    </a>
+                </div>
+                <div class="card sensoriais">
+                    <h2>SENSORIAIS</h2>
+                    <a href="/sensorial">
+                        <img src="imagens/sensorial.png" alt="sensorial">
+                    </a>
+                </div>
+                <div class="card intelectuais">
+                    <h2>INTELECTUAIS</h2>
+                    <a href="/intelectual">
+                        <img src="imagens/intelectual.png" alt="intelectual" >  
+                    </a>              
+                </div>
+                <div class="card neurodivergentes">
+                    <h2>NEURODIVERGENTES</h2>
+                    <a href="/neurodivergente">
+                        <img src="imagens/neurodivergente.png" alt="neurodivergentes">
+                    </a>
+                </div>          
+            </div>
         </div>
-        
-        <div class="container">
-            <div class="speech-bubble"><img src="./imagens/instagram.jpg" alt="instagram">
-                <div class="triangle"></div>
-            </div>
-            <div class="speech-bubble"><img src="./imagens/email.jpg" alt="email">
-                <div class="triangle"></div>
-            </div>
-            <div class="speech-bubble"><img src="./imagens/chat.jpg" alt="chat">
-                <div class="triangle"></div>
+       
+        <div class="linha"></div>
+
+        <div class="contato-container" id="contato" id="Contato">
+            <h1 class="margem">CONTATO</h1>
+            <p>Tem alguma dúvida? Entre em contato conosco.</p>
+    
+            <div class="contato-box">
+                <div class="email-section">
+                    <h2>E-mail:</h2>
+                    <a href="mailto:conexaofamiliar.cf@gmail.com">conexaofamiliar.cf@gmail.com</a>
+                </div>
+    
+                <div class="instagram-section">
+                    <h2>Instagram</h2>
+                    <div class="instagram-icon">
+                        
+                        <a href="https://www.instagram.com/conexaofamiliar.cf/"><img src="imagens/instagramm.png" alt="Instagram Icon"></a>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-links">
+                    <p>desenvolvido por</p>
+                    <a href="https://www.instagram.com/anapaulahsx/" target="_blank">Ana Paula do Prado Oliveira </a>
+                    <a href="https://www.instagram.com/babi.icc/" target="_blank">Bárbara de Camargo Inácio</a>
+                    <a href="https://www.instagram.com/luizmoreira2008/" target="_blank">Luiz Henrique Moreira de Paula</a>
+                </div>
+                <p>&copy; 2024 Conexão Familiar. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+        
     </section>
+    
 </body>
+<script type="text/javascript" src="./scripts/script.js"></script>
 </html>

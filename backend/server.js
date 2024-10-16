@@ -30,6 +30,10 @@ const PORT = 5000;
 // Servir arquivos estáticos da pasta 'public'
 app.use(express.static(path.join(__dirname, "..", "frontend", 'public')));
 app.use(express.static(path.join(__dirname, "..", "frontend", 'public', 'cadastro')));
+app.use(express.static(path.join(__dirname, "..", "frontend", 'public', 'fisica')));
+app.use(express.static(path.join(__dirname, "..", "frontend", 'public', 'intelectual')));
+app.use(express.static(path.join(__dirname, "..", "frontend", 'public', 'neurodivergente')));
+app.use(express.static(path.join(__dirname, "..", "frontend", 'public', 'sensorial')));
 app.use(express.static(path.join(__dirname, "..", "frontend", 'chats')));
 
 // Rota para servir os arquivos HTML dos chats
@@ -192,9 +196,9 @@ app.get('/cadPost', (req, res) => {
   const cpf = req.query.cpf;
   const idade = req.query.idade;
 
-  const sql = `INSERT INTO users(nome, cpf, idade) VALUES('${nome}', '${cpf}', '${idade}')`;
+  const sql = `INSERT INTO users(nome, cpf, idade) VALUES(?, ?, ?)`;
 
-  db.query(sql, (erro) => {
+  db.query(sql, [nome, cpf, idade], (erro) => {
     if(erro) {
       res.send("<h2>Falha ao realizar cadastro</h2>" + erro);
     } else {
@@ -204,6 +208,81 @@ app.get('/cadPost', (req, res) => {
 });
 
 // Outras rotas...
+
+app.get('/fisica', (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "public", "fisica", "index.html"));
+});
+
+app.get('/fisica/amputacao', (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "public", "fisica", "amp.html"));
+});
+
+app.get('/fisica/nanismo', (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "public", "fisica", "nanismo.html"));
+});
+
+app.get('/fisica/plegia', (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "public", "fisica", "plegia.html"));
+});
+
+app.get('/fisica/poliomelite', (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "public", "fisica", "poli.html"));
+});
+
+
+
+app.get('/intelectual', (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "public", "intelectual", "index.html"));
+});
+
+app.get('/intelectual/angelman', (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "public", "intelectual", "angel.html"));
+});
+
+app.get('/intelectual/cri', (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "public", "intelectual", "cri.html"));
+});
+
+app.get('/intelectual/down', (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "public", "intelectual", "down.html"));
+});
+
+app.get('/intelectual/william', (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "public", "intelectual", "will.html"));
+});
+
+
+
+
+app.get('/neurodivergente', (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "public", "neurodivergente", "index.html"));
+});
+
+app.get('/neurodivergente/autismo', (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "public", "neurodivergente", "autismo.html"));
+});
+
+app.get('/neurodivergente/tdah', (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "public", "neurodivergente", "tdah.html"));
+});
+
+app.get('/neurodivergente/dislexia', (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "public", "neurodivergente", "dislexia.html"));
+});
+
+app.get('/sensorial', (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "public", "sensorial", "index.html"));
+});
+
+app.get('/sensorial/cegueira', (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "public", "sensorial", "cegueira.html"));
+});
+
+app.get('/sensorial/surdez', (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "public", "sensorial", "surdez.html"));
+});
+
+
 
 // Iniciar o servidor
 server.listen(PORT, () => {

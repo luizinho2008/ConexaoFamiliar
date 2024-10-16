@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conexão familiar</title>
+    <link rel="stylesheet" href="will.css">
+    <link rel="icon" type="image/png" href="./images/cf.png">
+</head>
+<body>
+    <header>
+        <h1>SÍNDROME DE WILLIAMS</h1>
+    </header>
+
+    <main>
+        <section class="info-section">
+            <article class="box">
+                <h2>Síndrome de Williams</h2>
+                <p>
+                    Cuidar de alguém com síndrome de Williams é uma jornada desafiante e preciosa. Os cuidadores, com amor e dedicação, celebram cada pequena conquista. Crianças com a síndrome são afetuosas e sociáveis com os outros, trazendo alegria. O apoio de familiares, amigos e profissionais é vital. Cada progresso reflete o cuidado investido. Apesar dos desafios, essa jornada é cheia de momentos de alegria, destacando a importância da empatia e da diversidade.
+                </p>
+            </article>
+
+            <article class="box">
+                <h2>O que é?</h2>
+                <p>
+                    A síndrome de Williams é uma doença caracterizada por "face de gnomo ou fadinha”, nariz pequeno e empinado, cabelos encaracolados, lábios cheios, dentes pequenos e sorriso frequente. Estas crianças normalmente têm problemas de coordenação e equilíbrio, apresentando um atraso psicomotor. Seu comportamento é sociável e comunicativo embora utilizem expressões faciais, contatos visuais e gestos em sua comunicação.
+                    Embora comecem a falar tarde, por volta dos 18 meses, demonstram facilidade para aprender rimas e canções, demonstrando muita sensibilidade musical e concomitantemente boa memória auditiva.
+                    Seu desenvolvimento motor é mais lento. Demoram a andar, e tem grande dificuldade em executar tarefas que necessitem de coordenação motora.
+                </p>
+            </article>
+        </section>
+
+        <div class="container">
+            <div class="square">
+                <div class="face front">
+                    <p>
+                        Material 1
+                        <br>
+                        Manejo comportamental
+                    </p>
+                </div>
+                <a href="https://www.mackenzie.br/fileadmin/ARQUIVOS/Public/6-pos-graduacao/upm-higienopolis/mestrado-doutorado/disturbios_desenvolvimento/2018/periodicos/Manejo_comportamental_de_crian%C3%A7as_e_adolescentes_com_S%C3%ADndrome_de_Williams.pdf">
+                    <div class="face back1 back" ></div>
+                </a>
+            </div>
+
+            <div class="square">
+                <div class="face front">
+                    <p>
+                        Material 2
+                        <br/>
+                        Associação Brasileira da Síndrome de Williams
+
+                    </p>
+                </div>
+                <a href="https://www.swbrasil.org.br/">
+                    <div class="face back2 back"></div>
+                </a>
+            </div>
+            
+            <div class="square">
+                <div class="face front">
+                    <p>
+                        Material 3
+                        <br/>
+                        Síndrome de Williams
+                        <br>
+                        FIOCRUZ
+                    </p>
+                </div>
+                <a href="https://www.fiocruz.br/biosseguranca/Bis/infantil/sindrome-willians.htm">
+                    <div class="face back3 back"></div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div class="botaoChat">
+        <div class="typewriter">
+            <a href="/chatIntelectuais"><h1 id="text"></h1></a>
+        </div>
+    </div>
+
+    <button class="close-btn" onclick="voltar()">X</button>
+
+    <script>
+        function voltar() {
+            window.history.back();
+        }
+
+        const text = "Clique aqui para entrar no chat!";
+        let index = 0;
+        const textElement = document.getElementById("text");
+
+        function type() {
+            if (index < text.length) {
+                textElement.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type, 50); // Ajuste a velocidade da digitação aqui
+            } else {
+                textElement.innerHTML += "<span style='color: #999;'></span>";
+            }
+        }
+
+        type();
+    </script>
+</body>
+</html>

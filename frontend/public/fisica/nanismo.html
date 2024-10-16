@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conexão familiar</title>
+    <link rel="stylesheet" href="textoN.css">
+    <link rel="icon" type="image/png" href="./images/cf.png">
+</head>
+<body>
+    <header>
+        <h1>NANISMO</h1>
+    </header>
+
+    <main>
+        <section class="info-section">
+            <article class="box">
+                <h2>Nanismo</h2>
+                <p>
+                  O nanismo é uma condição que resulta em estatura significativamente abaixo da média, mas não define o potencial ou a dignidade de alguém. 
+                  Cada indivíduo é único e valioso, com habilidades, sonhos e contribuições únicas para oferecer ao mundo. 
+                  A verdadeira grandeza está na maneira como abraçamos nossa singularidade e inspiramos os outros com nosso espírito resiliente e determinação inabalável. 
+                </p>
+            </article>
+
+            <article class="box">
+                <h2>O que é?</h2>
+                <p>
+                  O nanismo é uma condição genética ou médica caracterizada por um crescimento significativamente abaixo da média esperada para a idade e sexo de uma pessoa. 
+                  Pode resultar de diversas causas, afetando principalmente o desenvolvimento ósseo e, ocasionalmente, outros aspectos do corpo. 
+                  Embora tenha impactos físicos, o nanismo não define a capacidade intelectual, emocional ou o valor de uma pessoa.
+                </p>
+            </article>
+        </section>
+
+        <div class="container">
+            <div class="square">
+                <div class="face front">
+                    <p>
+                        Material 1
+                        <br/>
+                        Pessoas com Nanismo 
+                        <br>
+                        e seus direitos
+                    </p>
+                </div>
+                <a href="https://www.gov.br/mdh/pt-br/navegue-por-temas/crianca-e-adolescente/acoes-e-programas/PESSOASCOMNANISMOESEUSDIREITOS.pdf">
+                    <div class="face back1 back" ></div>
+                </a>
+            </div>
+
+            <div class="square">
+                <div class="face front">
+                    <p>
+                        Material 2
+                        <br/>
+                        Instagram
+                        <br>
+                        ANNABRA - Associação Nanismo Brasil
+                    </p>
+                </div>
+                <a href="https://www.instagram.com/annabra_nanismo/">
+                    <div class="face back2 back"></div>
+                </a>
+            </div>
+            
+            <div class="square">
+                <div class="face front">
+                    <p>
+                        Material 3
+                        <br/>
+                        Ambientes acessíveis e
+                        <br>
+                        a pessoa com Nanismo
+                    </p>
+                </div>
+                <a href="https://www.gov.br/mdh/pt-br/navegue-por-temas/crianca-e-adolescente/acoes-e-programas/AMBIENTESACESSVEISEAPESSOACOMNANISMO.pdf">
+                    <div class="face back3 back"></div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div class="botaoChat">
+        <div class="typewriter">
+            <a href="/chatFisicas"><h1 id="text"></h1></a>
+        </div>
+    </div>
+
+    <button class="close-btn" onclick="voltar()">X</button>
+
+    <script>
+        function voltar() {
+            window.history.back();
+        }
+
+        const text = "Clique aqui para entrar no chat!";
+        let index = 0;
+        const textElement = document.getElementById("text");
+
+        function type() {
+            if (index < text.length) {
+                textElement.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type, 50); // Ajuste a velocidade da digitação aqui
+            } else {
+                textElement.innerHTML += "<span style='color: #999;'></span>";
+            }
+        }
+
+        type();
+    </script>
+</body>
+</html>

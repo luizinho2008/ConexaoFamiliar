@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conexão familiar</title>
+    <link rel="stylesheet" href="textoPL.css">
+    <link rel="icon" type="image/png" href="./images/cf.png">
+</head>
+<body>
+    <header>
+        <h1>PLEGIA</h1>
+    </header>
+
+    <main>
+        <section class="info-section">
+            <article class="box">
+                <h2>Plegia</h2>
+                <p>
+                    A plegia transforma profundamente a vida de alguém, exigindo uma adaptação física, emocional e espiritual. Inicialmente, o impacto pode ser devastador, mas a jornada de recuperação é uma prova da resiliência humana. 
+                    A reabilitação e o apoio emocional de amigos, familiares e profissionais de saúde são essenciais.
+                    Cada pequeno progresso é uma vitória que fortalece a determinação. Muitos descobrem novas paixões e interesses, encontrando um senso renovado de propósito. 
+                    A força e a determinação de quem vive com plegia são inspiradoras, demonstrando uma capacidade incrível de adaptação e superação.
+
+                </p>
+            </article>
+
+            <article class="box">
+                <h2>O que é?</h2>
+                <p>
+                    A plegia, também conhecida como paralisia, é uma condição médica caracterizada pela incapacidade total ou parcial de movimentar um ou mais membros do corpo. 
+                    Isso ocorre devido a uma fraqueza tão intensa que os músculos não conseguem se contrair, resultando na perda completa dos movimentos. 
+                    As causas da plegia podem variar, incluindo lesões na medula espinhal, acidentes vasculares cerebrais (AVCs) ou outras condições neurológicas. 
+                    Além disso, as lesões podem ocorrer nas vias motoras, piramidal ou extrapiramidal, levando a um déficit completo de todos os movimentos.
+                </p>
+            </article>
+        </section>
+
+        <div class="container">
+            <div class="square">
+                <div class="face front">
+                    <p>
+                        Material 1
+                        <br/>
+                        O que é: Plegia
+                        <br>
+                    </p>
+                </div>
+                <a href="https://sensisaude.com.br/glossario/o-que-e-plegia/">
+                    <div class="face back1 back" ></div>
+                </a>
+            </div>
+
+            <div class="square">
+                <div class="face front">
+                    <p>
+                        Material 2
+                        <br/>
+                        Vídeo
+                        <br>
+                        PARESIA X PARESTESIA X PLEGIA
+                    </p>
+                </div>
+                <a href="https://www.youtube.com/watch?v=WijxYWRue2c">
+                    <div class="face back2 back"></div>
+                </a>
+            </div>
+            
+            <div class="square">
+                <div class="face front">
+                    <p>
+                        Material 3
+                        <br/>
+                        Perda de força, 
+                        <br>
+                        Plegias e Paresias
+                    </p>
+                </div>
+                <a href="https://victorbarboza.com.br/perda-de-forca-plegias-e-paresias/#:~:text=A%20paralisia%20(plegia)%20se%20refere,vias%20motora%2C%20piramidal%20ou%20extrapiramidal.">
+                    <div class="face back3 back"></div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div class="botaoChat">
+        <div class="typewriter">
+            <a href="/chatFisicas"><h1 id="text"></h1></a>
+        </div>
+    </div>
+
+    <button class="close-btn" onclick="voltar()">X</button>
+
+    <script>
+        function voltar() {
+            window.history.back();
+        }
+
+        const text = "Clique aqui para entrar no chat!";
+        let index = 0;
+        const textElement = document.getElementById("text");
+
+        function type() {
+            if (index < text.length) {
+                textElement.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type, 50); // Ajuste a velocidade da digitação aqui
+            } else {
+                textElement.innerHTML += "<span style='color: #999;'></span>";
+            }
+        }
+
+        type();
+    </script>
+</body>
+</html>

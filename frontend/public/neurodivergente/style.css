@@ -1,21 +1,21 @@
-/* Menu e Rodapé */
+/*cabeçalho*/
 * {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
 }
 .cabecalho
 {
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ebebeb;
-    padding: 10px;
+    background-color: #faa100;
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
+    padding: 10px;
+    margin-top: -90px;
+    
 }
 nav ul {
     list-style-type: none;
@@ -35,7 +35,7 @@ nav ul li a {
     cursor: pointer;
 }
 a:hover {
-    color: #DF1C00; 
+    color: #ffec9c;
 }
 .menu ul
 {
@@ -51,39 +51,54 @@ a:hover {
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: #ff9900;
+    background-color: #e85900;
     bottom: -5px;
     left: 0;
     transform: scaleX(0);
-    transition: transform 0.5s ease;
+    transition: transform 0.3s ease;
 }
 
 .menu ul li a:hover::after {
     transform: scaleX(1);
 }
-
+.menu
+{
+    color: rgb(247, 170, 4);
+}
+.corbranca
+{
+    color: white;
+}
 .logo
 {
-    width: 60px;
+    width: 30px;
 }
+
 .logo img
 {
-    margin: 0px;
-    width: 100%;
+    width: 50px;
 }
-.rodape
+.fotointro img{
+    max-width: 100%;
+}
+.bloco1
 {
-    background-color: #000000;
-    color: #fff;
-    padding: 20px;
-    width: 100%;
-    margin-bottom: 0px;
+    background-color:#EB5600;
+    display: flex;
+    justify-content:space-between;
 }
+
+.texto
+{
+    margin: 20px 0px 0px 300px;
+}
+
+/* ----
 /* ---------------------------------------------------------------------------------------------------- */
 /* titulo */
 .titulo
 {
-    background-color: #EB5600;
+    background-color: #ed11a7;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -98,12 +113,12 @@ a:hover {
 {
     margin-top: 50px;
     width: 90%;
-    border-bottom: 4px solid #fac48383;
+    border-bottom: 4px solid #ff8640a3; 
     margin-left: 70px;
 }
 .back
 {
-    background-color: #fff5e3;
+    background-color: #ffe7fd;
 }
 /* ---------------------------------------------------------------------------------------------------- */
 /* icones/quadrados*/
@@ -115,7 +130,7 @@ a:hover {
     margin: 25px;
     margin-left: 150px;
     border: 3px solid #e6e6e6;
-    background-color: #ffe2c3;
+    background-color: #fff5ea;
     border-radius: 25px;
     transition: 0.4s ease-in-out transform, 0.4s ease-in-out box-shadow;
 }
@@ -132,7 +147,7 @@ a:hover {
 {
     display: flex;
     justify-content: center;
-    color: #EB5600;
+    color: #ed11a7;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 }
@@ -177,16 +192,6 @@ a:hover {
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Sombra */
 }
 
-.link-chat {
-    border: none;
-    height: 40px;
-    font-size: 17.5px;
-    border-radius: 10px;
-    margin-left: 20px;
-    background-color: #DF1C00;
-    color: white;
-    cursor: pointer;
-}
   
   
 /* ---------------------------------------------------------------------------------------------------- */

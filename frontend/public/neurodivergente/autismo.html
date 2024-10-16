@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conexão familiar</title>
+    <link rel="stylesheet" href="autismo.css">
+    <link rel="icon" type="image/png" href="./images/cf.png">
+</head>
+<body>
+    <header>
+        <h1>AUTISMO</h1>
+    </header>
+
+    <main>
+        <section class="info-section">
+            <article class="box">
+                <h2>Autismo</h2>
+                <p>
+                    Receber um diagnóstico de autismo pode despertar uma variedade de emoções, mas lembre-se de que isso é apenas uma parte do seu filho, não a definição de seu futuro. Com apoio, carinho e compreensão, ele tem o potencial de se desenvolver de maneiras únicas e surpreendentes.
+                    Cada progresso é uma vitória que reflete o amor e o compromisso de vocês. A jornada pode ter desafios, mas também é repleta de momentos especiais que seu filho trará e cuidem de si mesmos, pois seu bem-estar é essencial para o crescimento do mesmo.
+                    
+                </p>
+            </article>
+
+            <article class="box">
+                <h2>O que é?</h2>
+                <p>
+                    O autismo, ou Transtorno do Espectro Autista (TEA), é uma condição neurológica que afeta a forma como uma pessoa percebe e interage com o mundo. Caracteriza-se por dificuldades na comunicação e nas interações sociais, comportamentos repetitivos e sensibilidades sensoriais variadas.
+                    Como o TEA é um espectro, suas manifestações variam amplamente entre os indivíduos. O diagnóstico é feito por profissionais de saúde e pode ser apoiado por intervenções precoces e terapias. Embora o autismo apresente desafios, muitas pessoas com TEA têm habilidades únicas e podem viver vidas plenas, especialmente quando recebem compreensão e suporte adequados.                    
+                </p>
+            </article>
+        </section>
+
+        <div class="container">
+            <div class="square">
+                <div class="face front">
+                    <p>
+                        Material 1
+                        <br/>
+                        Inclusão escolar e autismo:
+                        <br>
+                        sentimentos e práticas docentes                   </p>
+                </div>
+                <a href="https://www.scielo.br/j/pee/a/NwnK5kF4zM9m9XRynr53nwF">
+                    <div class="face back1 back" ></div>
+                </a>
+            </div>
+
+            <div class="square">
+                <div class="face front">
+                    <p>
+                        Material 2
+                        <br>
+                        ABRAAC
+                        <br>
+                        Associação Brasileira de Autismo 
+                    </p>
+                </div>
+                <a href="https://www.abraac.org/">
+                    <div class="face back2 back"></div>
+                </a>
+            </div>
+            
+            <div class="square">
+                <div class="face front">
+                    <p>
+                        Material 3
+                        <br/>
+                        Vídeo
+                        <br>
+                        Dr. Rodrigo responde: o que é autismo?
+                    </p>
+                </div>
+                <a href="https://www.youtube.com/watch?v=OvCyEbY7Mog">
+                    <div class="face back3 back"></div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div class="botaoChat">
+        <div class="typewriter">
+            <a href="/chatNeuroDivergentes"><h1 id="text"></h1></a>
+        </div>
+    </div>
+
+    <button class="close-btn" onclick="voltar()">X</button>
+
+    <script>
+        function voltar() {
+            window.history.back();
+        }
+
+        const text = "Clique aqui para entrar no chat!";
+        let index = 0;
+        const textElement = document.getElementById("text");
+
+        function type() {
+            if (index < text.length) {
+                textElement.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type, 50); // Ajuste a velocidade da digitação aqui
+            } else {
+                textElement.innerHTML += "<span style='color: #999;'></span>";
+            }
+        }
+
+        type();
+    </script>
+</body>
+</html>

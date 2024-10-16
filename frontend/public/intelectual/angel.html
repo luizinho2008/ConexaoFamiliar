@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conexão familiar</title>
+    <link rel="stylesheet" href="angel.css">
+    <link rel="icon" type="image/png" href="./images/cf.png">
+</head>
+<body>
+    <header>
+        <h1>SÍNDROME DE ANGELMAN</h1>
+    </header>
+
+    <main>
+        <section class="info-section">
+            <article class="box">
+                <h2>Síndrome de Angelman</h2>
+                <p>
+                    Cuidar de uma criança com Síndrome de Angelman exige uma força e um amor extraordinários. Vocês enfrentam desafios diários, como convulsões e dificuldades de movimento, com uma paciência e dedicação admiráveis. Embora a jornada possa parecer solitária, lembrem-se de que há uma comunidade pronta para apoiar e oferecer compreensão. Cada pequena conquista é uma vitória significativa, e o amor incondicional de vocês faz uma enorme diferença na vida de sua criança. Saibam que estamos ao seu lado, oferecendo nosso apoio e torcendo por cada progresso.
+                </p>
+            </article>
+
+            <article class="box">
+                <h2>O que é?</h2>
+                <p>
+                    A Síndrome de Angelman é uma condição genética rara que afeta o desenvolvimento cerebral, causando atraso intelectual grave, ausência de fala, risos frequentes, convulsões e dificuldades motoras. É causada por uma mutação ou ausência do cromossomo 15 herdado da mãe. O tratamento envolve medicamentos e terapias, como hidroterapia, musicoterapia e terapia ocupacional, para ajudar a melhorar a comunicação, a coordenação motora e a qualidade de vida.
+                </p>
+            </article>
+        </section>
+        <div class="container">
+            <div class="square">
+                <div class="face front">
+                    <p>
+                        Material 1
+                        <br>
+                        Sobre a síndrome de Angelman 
+                    </p>
+                </div>
+                <a href="https://angelmanbrasil.org.br/sobre/">
+                    <div class="face back1 back" ></div>
+                </a>
+            </div>
+
+            <div class="square">
+                <div class="face front">
+                    <p>
+                        Material 2
+                        <br/>
+                        Vídeo
+                        <br>
+                        Síndrome de Angelman: você conhece? 
+                    </p>
+                </div>
+                <a href="https://www.youtube.com/watch?v=FZaZ67QcB70">
+                    <div class="face back2 back"></div>
+                </a>
+            </div>
+            
+            <div class="square">
+                <div class="face front">
+                    <p>
+                        Material 3
+                        <br/>
+                        Síndrome de Angelman
+                    </p>
+                </div>
+                <a href="https://www.draanagabrielascuoghi.com.br/materia/sindrome-de-angelman">
+                    <div class="face back3 back"></div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div class="botaoChat">
+        <div class="typewriter">
+            <a href="/chatIntelectuais"><h1 id="text"></h1></a>
+        </div>
+    </div>
+
+    <button class="close-btn" onclick="voltar()">X</button>
+
+    <script>
+        function voltar() {
+            window.history.back();
+        }
+
+        const text = "Clique aqui para entrar no chat!";
+        let index = 0;
+        const textElement = document.getElementById("text");
+
+        function type() {
+            if (index < text.length) {
+                textElement.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type, 50); // Ajuste a velocidade da digitação aqui
+            } else {
+                textElement.innerHTML += "<span style='color: #999;'></span>";
+            }
+        }
+
+        type();
+    </script>
+</body>
+</html>

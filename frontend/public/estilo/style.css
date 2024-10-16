@@ -1,18 +1,35 @@
+/*--------------------------------------------------------*/
+/*fotos/intro/info*/
 * {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
 }
-.principal{
-    background-color: #ffe8bd;
+.intro{
+    background-color: #ffffff;
 }
+.infos{
+    background-color: #fff1fd;
+}
+#contato
+{
+    background-color: #fff7d7;
+}
+.linha{
+    border: 0;
+    height: 5px; /* Define a espessura da linha */
+    background-color: #DF1C00;  /* Define a cor da linha */
+}
+/*--------------------------------------------------------*/
+/*cabeçalho*/
 .cabecalho
 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ebebeb;
+    background-color: #faa100;
+    position: fixed;
+    width: 100%;
+    margin-top: -5px;
+    padding: 15px;
 }
 nav ul {
     list-style-type: none;
@@ -32,7 +49,7 @@ nav ul li a {
     cursor: pointer;
 }
 a:hover {
-    color: #DF1C00; 
+    color: #ffec9c;
 }
 .menu ul
 {
@@ -48,7 +65,7 @@ a:hover {
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: #ff9900;
+    background-color: #e85900;
     bottom: -5px;
     left: 0;
     transform: scaleX(0);
@@ -69,7 +86,6 @@ a:hover {
 .logo
 {
     width: 30px;
-    margin-left: 10px;
 }
 
 .logo img
@@ -84,7 +100,6 @@ a:hover {
     background-color:#EB5600;
     display: flex;
     justify-content:space-between;
-    height: 70px;
 }
 .titulo
 {
@@ -95,76 +110,200 @@ a:hover {
     margin: 20px 0px 0px 300px;
 }
 
+/*--------------------------------------------------------*/
+/*Seções*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e8faff;
+    text-align: center;
+}
 
 .container {
-    display: flex;
-    justify-content: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #000;
     margin-bottom: 20px;
 }
 
-.square {
-    display: flex; /* Adiciona flexbox nos quadrados */
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    align-items: center; /* Centraliza o conteúdo verticalmente */
-    width: 200px;
-    height: 200px;
-    background-color: #EB5600;
-    margin: 40px;
-    color: white; /* Cor do texto */
-    font-size: 16px; /* Tamanho da fonte */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.card {
+    padding: 20px;
     border-radius: 10px;
-    overflow: hidden; /* Garante que a imagem não ultrapasse os limites do quadrado */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adiciona transições suaves */
-}
-
-.speech-bubble {
-    display: flex; /* Adiciona flexbox nos quadrados e balões */
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    align-items: center; /* Centraliza o conteúdo verticalmente */
-    width: 200px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     height: 200px;
-    background-color: #EB5600;
-    margin: 40px;
-    color: white; /* Cor do texto */
-    font-size: 16px; /* Tamanho da fonte */
-    border-radius: 10px; /* Arredonda as bordas */
-    position: relative; /* Para permitir o uso de ::after */
-    overflow: hidden;  /* Adicionado overflow: hidden */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajusta a transição */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.square img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ajusta a imagem para cobrir o quadrado */
-    border-radius: 10px; /* Arredonda as bordas das imagens */
+.card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+/*imagens - seção*/
+.card img {
+    width: 300px;
+    height: auto;
+    margin-top: -27px;
+    transition: transform 0.4s ease;
+}
+.card:hover {
+    transform: scale(1.1); /* Aumenta o tamanho em 10% */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+}
+.card:hover img {
+    transform: scale(1.05); /* Aumenta levemente a imagem */
 }
 
-.triangle {
-    position: absolute;
-    bottom: -28px; /* Ajuste para posicionar o triângulo fora do balão */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 20px solid #4CAF50;
+.fisicas {
+    background-color: #16c4c3;
 }
 
-.square-link {
-    text-decoration: none; /* Remove a decoração do link */
+.sensoriais {
+    background-color: #f4a229;
 }
 
-.square:hover, .speech-bubble:hover{
-    transform: scale(1.25); /* Aumenta levemente o tamanho do quadrado */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Adiciona uma sombra */
+.intelectuais {
+    background-color: #9d64c4;
+}
+
+.neurodivergentes {
+    background-color: #ff6ea8;
 }
 
 
-.speech-bubble img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+
+/*--------------------------------------------------------*/
+/*contato*/
+.contato-container {
+    text-align: center;
+    color: #000;
+    
+}
+.contato-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    margin: 5px;
+}
+
+.contato-container p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.contato-box {
+    border: 3px solid #ffd700; /* Borda amarela */
     border-radius: 10px;
+    padding: 30px;
+    background-color: #fff;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.email-section {
+    margin-bottom: 30px;
+}
+
+.email-section h2 {
+    font-size: 1.5rem;
+    color: #00bfbf; /* Cor azul para "E-mail" */
+    margin-bottom: 10px;
+}
+
+.email-section a {
+    font-size: 1.2rem;
+    color: #000;
+    text-decoration: none;
+    padding: 5px;
+    border: 2px solid #d4a373;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.email-section a:hover {
+    background-color: #e5b7b7;
+    border-color: #a64d79; /* Cor roxa escura */
+}
+
+.instagram-section h2 {
+    font-size: 1.5rem;
+    color: #00bfbf; /* Cor azul para "Instagram" */
+    margin-bottom: 20px;
+}
+
+.instagram-icon {
+    border: 3px solid #f78787; /* Borda rosa */
+    padding: 5px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.instagram-icon img {
+    height: 100px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.instagram-icon:hover img {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/*--------------------------------------------------------*/
+/*rodapé*/
+
+footer {
+    background-color: #00bfbf; /* Cor de fundo do footer */
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    color: white;
+}
+
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ffd700; /* Muda para amarelo no hover */
+}
+
+footer p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #f3f3f3;
 }

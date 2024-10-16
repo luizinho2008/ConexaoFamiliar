@@ -1,25 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="amp.css">
+    <title>Conexão familiar</title>
+    <link rel="stylesheet" href="textoA.css">
+    <link rel="icon" type="image/png" href="./images/cf.png">
 </head>
 <body>
-   <div class="container">
-      <img src="images/amp.png" alt="Imagem" class="image">
-      <div class="text">
+    <header>
         <h1>AMPUTAÇÃO</h1>
-        <p>Texto sobre amputação...</p>
-      </div>
-      <button class="close" onclick="voltar()">X</button>
-  </div>
-  
-  <script>
-    function voltar() {
-      window.history.back();
-    }
-  </script>
+    </header>
+
+    <main>
+        <section class="info-section">
+            <article class="box">
+                <h2>Amputação</h2>
+                <p>
+                    A amputação é uma jornada desafiadora, mas não define quem você é. 
+                    É um processo de adaptação física, emocional e espiritual, onde encontrar apoio 
+                    e aceitar ajuda são essenciais. Cada passo diante é uma vitória, fortalecendo sua 
+                    determinação e revelando novas perspectivas de vida.
+                </p>
+            </article>
+
+            <article class="box">
+                <h2>O que é?</h2>
+                <p>
+                    Amputação é a remoção cirúrgica parcial ou total de um membro do corpo humano 
+                    devido a condições médicas como lesões traumáticas graves, doenças vasculares avançadas, 
+                    infecções ou tumores. O objetivo é melhorar a qualidade de vida, aliviar a dor e prevenir 
+                    complicações sérias.
+                </p>
+            </article>
+        </section>
+
+        <div class="container">
+            <div class="square">
+                <div class="face front">
+                    <p>
+                        Material 1
+                        <br/>
+                        Tipos de Amputações: 
+                        <br>
+                        Causas e Níveis de Amputação
+                    </p>
+                </div>
+                <a href="https://bionicenter.com.br/2020/10/09/tipos-de-amputacoes-causas-e-niveis-de-amputacao/#:~:text=A%20amputa%C3%A7%C3%A3o%20%C3%A9%20a%20remo%C3%A7%C3%A3o,cirurgia%20preventiva%20para%20esses%20problemas.">
+                    <div class="face back1 back" ></div>
+                </a>
+            </div>
+
+            <div class="square">
+                <div class="face front">
+                    <p>
+                        Material 2
+                        <br/>
+                        Guia de orientações
+                        <br>
+                        ao paciente amputado
+                    </p>
+                </div>
+                <a href="https://www.hcfmb.unesp.br/wp-content/uploads/2019/06/Amputado-1.pdf">
+                    <div class="face back2 back"></div>
+                </a>
+            </div>
+            
+            <div class="square">
+                <div class="face front">
+                    <p>
+                        Material 3
+                        <br/>
+                        Material de apoio
+                        <br>
+                        Deficiência Física
+                    </p>
+                </div>
+                <a href="https://repositorio.londrina.pr.gov.br/index.php/menu-educacao/educacao-e-a-covid-19/inclusao/31471-material-apoio-deficiencia-fisica/file">
+                    <div class="face back3 back"></div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div class="botaoChat">
+        <div class="typewriter">
+            <a href="/chatFisicas"><h1 id="text"></h1></a>
+        </div>
+    </div>
+
+    <button class="close-btn" onclick="voltar()">X</button>
+
+    <script>
+        function voltar() {
+            window.history.back();
+        }
+
+        const text = "Clique aqui para entrar no chat!";
+        let index = 0;
+        const textElement = document.getElementById("text");
+
+        function type() {
+            if (index < text.length) {
+                textElement.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type, 50); // Ajuste a velocidade da digitação aqui
+            } else {
+                textElement.innerHTML += "<span style='color: #999;'></span>";
+            }
+        }
+
+        type();
+    </script>
 </body>
 </html>
