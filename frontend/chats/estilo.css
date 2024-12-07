@@ -72,100 +72,197 @@ a:hover {
     transform: scaleX(1);
 }
 
-#messages {
-    max-width: calc(100% - 75px);
-    margin: 20px auto;
-    padding: 20px;
-    border: 3px solid black;
-    border-radius: 10px;
+/* Estilos Gerais */
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Cabeçalho */
+.cabecalho {
+    background-color: #ffec9c;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cabecalho .logo img {
+    height: 50px;
+}
+
+.cabecalho .menu ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.cabecalho .menu ul li a {
+    text-decoration: none;
+    color: #e85900;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.cabecalho .menu ul li a:hover {
+    color: #ff9500;
+}
+
+/* Formulário de CPF */
+#cpfForm {
+    background-color: #fff;
+    padding: 30px;
+    margin: 250px auto;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#cpfForm h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ff5e00;
+}
+
+#cpfForm input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 15px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: 2px solid #ffae00;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#cpfForm input[type="text"]:focus {
+    border-color: #ff5e00;
+}
+
+#cpfForm button {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #ff7a00, #ffae00);
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%;
+}
+
+#cpfForm button:hover {
+    background: linear-gradient(135deg, #ffae00, #ff7a00);
+}
+
+/* Mensagem de Erro */
+#cpfInvalidMessage {
+    color: #d9534f;
+    background-color: #f9e2e2;
+    padding: 15px;
+    border: 1px solid #f2bcbc;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do Chat */
+#chatContainer {
+    background-color: #fff;
+    padding: 20px;
+    max-width: 90%;
+    margin: 180px auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#messages {
+    max-height: 300px;
     overflow-y: auto;
-    height: 275px;
-    margin-top: 7.5%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    border: 1px solid #ddd;
 }
 
 .message-container {
-    overflow: hidden;
-}
-
-.message {
-    font-size: 18px;
-    padding: 10px;
     margin-bottom: 10px;
-    border-radius: 10px;
-    max-width: 70%;
-    opacity: 0;
-    animation: fadeIn 0.5s forwards;
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
 }
 
 .user-message {
-    background-color: #00ff55;
-    float: right;
-    clear: both;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 15px;
+    max-width: 80%;
+    margin-left: auto;
+    text-align: right;
 }
 
 .other-message {
-    float: left;
-    clear: both;
-}
-
-#cpfForm, #messageForm {
-    max-width: 600px;
-    margin: 20px auto;
-}
-
-#cpfForm input[type="text"], #messageForm input[type="text"] {
+    background-color: #e9ecef;
+    color: #ffffff;
     padding: 10px;
-    width: 100%;
-    margin-right: 10px;
-    border-radius: 20px;
-    border: 5px solid #ffae00;
+    border-radius: 15px;
+    max-width: 80%;
+    margin-right: auto;
+}
+
+#messageForm input[type="text"] {
+    width: calc(100% - 110px);
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ffae00;
+    border-radius: 15px;
     outline: none;
-    font-weight: bolder;
+    transition: border-color 0.3s ease;
 }
 
-input[type="text"], button {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 20px;
+#messageForm input[type="text"]:focus {
+    border-color: #ff5e00;
 }
 
-#cpfForm button, #messageForm button {
-    padding: 10px 20px;
-    background-color: #ff5e00;
-    color: #fff;
+#messageForm button {
+    padding: 12px 70px;
+    background: linear-gradient(45deg, #cc0000, #ff845f);
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
-    width: calc(100% + 22.5px);
+    margin: 10px;
+    transition: background 0.3s ease;
 }
 
-#cpfForm button:hover, #messageForm button:hover {
-    background-color: #f7d200;
+#messageForm button:hover {
+    background: linear-gradient(135deg, #ff845f, #cc0000);
 }
 
-#cpfForm {
-    margin-top: 10%;
-}
+/* Layout Responsivo */
+@media (max-width: 768px) {
+    .cabecalho .menu ul {
+        flex-direction: column;
+        gap: 10px;
+    }
 
-#invalidMessage {
-    color: red;
-    margin-left: 15px;
-    display: none;
-}
+    #cpfForm, #chatContainer {
+        margin: 20px;
+    }
 
-#cpfInvalidMessage {
-    color: white;
-    background-color: red;
-    border-radius: 5px;
-    display: none;
-    padding: 5px;
-    width: 617.5px;
-    margin-left: -2.5px;
+    #messageForm input[type="text"] {
+        width: calc(100% - 90px);
+    }
 }

@@ -186,6 +186,9 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "frontend", "public", "index.html"));
 });
 
+app.get("/termo", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "public", "termo.html"));
+});
 
 app.get("/cad", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "frontend", "public", "cadastro" ,"index.html"));

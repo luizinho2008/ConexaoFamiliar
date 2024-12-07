@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat App</title>
+    <title>Fórum - Sensoriais</title>
+    <link rel="icon" type="image/png" href="./imagens/cf.png">
     <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
@@ -22,6 +23,7 @@
         </header>
     </div>
     <form id="cpfForm">
+        <h1>Para entrar no Fórum...</h1>
         <input type="text" id="cpfInput" placeholder="Digite seu CPF" autocomplete="off">
         <button type="submit">Entrar</button>
         <h2 id="cpfInvalidMessage" style="display: none;">CPF inválido ou não encontrado.</h2>
@@ -29,7 +31,7 @@
     <div id="chatContainer" style="display: none;">
         <div id="messages"></div>
         <form id="messageForm">
-            <input type="text" id="messageInput" placeholder="Conte a sua experiência com pessoas com doenças sensoriais">
+            <input type="text" id="messageInput" placeholder="Conte a sua experiência com pessoas com deficiências sensoriais">
             <button type="submit" id="button">Enviar</button>
             <h2 id="invalidMessage" style="display: none;">Mensagem ofensiva portanto não pode ser enviada</h2>
         </form>

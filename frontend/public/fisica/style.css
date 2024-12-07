@@ -10,7 +10,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #faa100;
+    background-color: #ffec9c;
     position: fixed;
     width: 100%;
     padding: 10px;
@@ -30,12 +30,12 @@ nav ul li {
 }
 nav ul li a {
     position: relative;
-    color: #000000;
+    color: #e85900;
     text-decoration: none;
     cursor: pointer;
 }
 a:hover {
-    color: #ffec9c;
+    color: #ff9500;
 }
 .menu ul
 {
