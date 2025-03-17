@@ -1,0 +1,70 @@
+.termoContainer {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaçamento entre os itens */
+}
+
+.termoTitle, .termoSubTitle {
+    color: black;
+    margin-bottom: 10px; /* Adicionando espaço abaixo dos títulos */
+}
+
+.termoText {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 15px; /* Espaço entre os parágrafos */
+}
+
+.termoList {
+    padding-left: 20px;
+    margin-bottom: 15px; /* Espaço entre a lista e os próximos elementos */
+}
+
+.termoListItem {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px; /* Espaço entre os itens da lista */
+}
+
+.termoLink {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.termoLink:hover {
+    text-decoration: underline;
+}
+
+.buttonContainer {
+    margin-top: 20px;
+}
+
+.termoCheckboxLabel {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px; /* Espaço abaixo da label */
+}
+
+.termoCheckbox {
+    margin-right: 10px;
+}
+
+.termoButton {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px; /* Espaço acima do botão */
+}
+
+.termoButton:hover {
+    background-color: #2980b9;
+}

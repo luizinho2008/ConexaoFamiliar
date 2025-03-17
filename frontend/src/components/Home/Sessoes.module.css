@@ -1,0 +1,65 @@
+.container {
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.card {
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+/*imagens - seção*/
+.card img {
+    width: 300px;
+    height: auto;
+    margin-top: -27px;
+    transition: transform 0.4s ease;
+}
+.card:hover {
+    transform: scale(1.1); /* Aumenta o tamanho em 10% */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Sombra mais intensa */
+}
+.card:hover img {
+    transform: scale(1.05); /* Aumenta levemente a imagem */
+}
+
+.fisicas {
+    background-color: #16c4c3;
+}
+
+.sensoriais {
+    background-color: #f4a229;
+}
+
+.intelectuais {
+    background-color: #9d64c4;
+}
+
+.neurodivergentes {
+    background-color: #ff6ea8;
+}
