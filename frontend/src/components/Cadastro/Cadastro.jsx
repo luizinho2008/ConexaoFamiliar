@@ -52,7 +52,7 @@ const Cadastro = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setErrorMessage(""); // Limpa mensagem de erro antes da requisição
-
+    
         if (!errors.nome && !errors.cpf && !errors.idade) {
             try {
                 const response = await axios.post("http://localhost:5000/cadPost", {
@@ -60,23 +60,21 @@ const Cadastro = () => {
                     cpf,
                     idade
                 });
-
+    
                 if (response.status === 200) {
-                    alert("Cadastro realizado com sucesso!");
                     navigate("/"); // Redireciona para a página inicial
                 }
             } catch (error) {
                 if (error.response) {
-                    setErrorMessage(error.response.data.message || "Erro ao cadastrar.");
+                    // Se o erro vier do backend, exibe a mensagem de erro
+                    alert(error.response.data.message || "Erro ao cadastrar.");
                 } else {
-                    setErrorMessage("Erro ao conectar com o servidor.");
+                    // Se houver erro de conexão
+                    alert("Erro ao conectar com o servidor.");
                 }
-
-                // Esconde o erro após 3 segundos
-                setTimeout(() => setErrorMessage(""), 3000);
             }
         }
-    };
+    };    
 
     return (
         <div className={styles.container2}>

@@ -33,6 +33,40 @@ db.connect((err) => {
     console.log("Conectado ao banco de dados");
 });
 
+app.post("/cadPost", (req, res) => {
+    const { nome, cpf, idade } = req.body;
+
+    // Validação simples dos dados
+    if (!nome || !cpf || !idade) {
+        return res.status(400).json({ message: "Todos os campos são obrigatórios." });
+    }
+
+    // Verificar se o CPF já está cadastrado
+    getUserByCpf(cpf, (err, user) => {
+        if (err) {
+            console.error("Erro ao verificar CPF:", err);
+            return res.status(500).json({ message: "Erro no servidor." });
+        }
+
+        if (user) {
+            // Se o CPF já existe, retorna um erro
+            return res.status(400).json({ message: "Já existe um usuário com esse CPF." });
+        }
+
+        // Caso o CPF não exista, insere o novo usuário
+        const query = "INSERT INTO users (nome, cpf, idade) VALUES (?, ?, ?)";
+        db.query(query, [nome, cpf, idade], (err, result) => {
+            if (err) {
+                console.error("Erro ao inserir usuário:", err);
+                return res.status(500).json({ message: "Erro ao cadastrar o usuário." });
+            }
+
+            // Sucesso no cadastro
+            return res.status(200).json({ message: "Cadastro realizado com sucesso!" });
+        });
+    });
+});
+
 // Função para validar o tipo de chat e retornar a tabela correta
 const getTableName = (tipo) => {
     const chatTables = {
