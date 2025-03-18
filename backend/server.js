@@ -8,7 +8,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: "https://conexao-familiar.vercel.app/", // Porta correta do cliente React
+        origin: "https://conexao-familiar.vercel.app", // Porta correta do cliente React
         methods: ["GET", "POST"]
     }
 });
