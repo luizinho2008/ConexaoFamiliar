@@ -41,12 +41,7 @@ const Chat = () => {
         });
 
         socket.on("newMessage", (msg) => {
-            setMessages((prevMessages) => {
-                if (!prevMessages.some((message) => message.message === msg.message && message.name === msg.name)) {
-                    return [...prevMessages, msg];
-                }
-                return prevMessages;
-            });
+            setMessages((prevMessages) => [...prevMessages, msg]);
         });
 
         return () => {
