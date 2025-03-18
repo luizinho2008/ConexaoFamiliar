@@ -18,10 +18,11 @@ app.use(express.json());
 
 // Configuração do banco de dados
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "", // Insira sua senha do MySQL aqui
-    database: "projeto2024"
+    host: "oo1bj.h.filess.io",
+    user: "conexaofamiliar_headingsee",
+    password: "2e7e3cb20fb6960590f1681d35ee3096ecb8f8d3", // Insira sua senha do MySQL aqui
+    database: "conexaofamiliar_headingsee",
+    port: "61002"
 });
 
 // Conexão com o banco de dados
