@@ -4,7 +4,7 @@ import io from "socket.io-client";
 import { motion } from "framer-motion";
 import styles from "./Chat.module.css";
 
-const socket = io("https://conexaofamiliar.onrender.com/", { autoConnect: false });
+const socket = io("https://conexaofamiliar.onrender.com", { autoConnect: false });
 
 const Chat = () => {
     const { tipo } = useParams();
