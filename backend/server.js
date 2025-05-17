@@ -8,7 +8,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: "*", // Porta correta do cliente React
+        origin: "*", // Porta correta do cliente React e Android
         methods: ["GET", "POST"]
     }
 });
