@@ -151,7 +151,7 @@ io.on("connection", (socket) => {
                 socket.cpf = user.cpf;
                 socket.room = tipo;
                 socket.join(tipo);
-                socket.emit("cpfValid", { name: user.nome });
+                socket.emit("cpfValid", { name: user.nome, cpf: user.cpf });
                 loadPreviousMessages(socket, tipo);
             } else {
                 socket.emit("cpfInvalid");
