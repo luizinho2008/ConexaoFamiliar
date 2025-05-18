@@ -55,7 +55,7 @@ const Cadastro = () => {
     
         if (!errors.nome && !errors.cpf && !errors.idade) {
             try {
-                const response = await axios.post("https://conexaofamiliar.onrender.com/", {
+                const response = await axios.post("https://conexaofamiliar.onrender.com/cadPost", {
                     nome,
                     cpf,
                     idade
