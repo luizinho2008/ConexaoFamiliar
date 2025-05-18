@@ -10,7 +10,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: "*", // Porta correta do cliente React e Android
+        origin: "*",
         methods: ["GET", "POST"]
     }
 });
@@ -36,15 +36,14 @@ db.connect((err) => {
     console.log("Conectado ao banco de dados");
 });
 
+// Rota para cadastrar novo usuário
 app.post("/cadPost", (req, res) => {
     const { nome, cpf, idade } = req.body;
 
-    // Validação simples dos dados
     if (!nome || !cpf || !idade) {
         return res.status(400).json({ message: "Todos os campos são obrigatórios." });
     }
 
-    // Verificar se o CPF já está cadastrado
     getUserByCpf(cpf, (err, user) => {
         if (err) {
             console.error("Erro ao verificar CPF:", err);
@@ -52,11 +51,9 @@ app.post("/cadPost", (req, res) => {
         }
 
         if (user) {
-            // Se o CPF já existe, retorna um erro
             return res.status(400).json({ message: "Já existe um usuário com esse CPF." });
         }
 
-        // Caso o CPF não exista, insere o novo usuário
         const query = "INSERT INTO users (nome, cpf, idade) VALUES (?, ?, ?)";
         db.query(query, [nome, cpf, idade], (err, result) => {
             if (err) {
@@ -64,19 +61,18 @@ app.post("/cadPost", (req, res) => {
                 return res.status(500).json({ message: "Erro ao cadastrar o usuário." });
             }
 
-            // Sucesso no cadastro
             return res.status(200).json({ message: "Cadastro realizado com sucesso!" });
         });
     });
 });
 
-// Função para validar o tipo de chat e retornar a tabela correta
+// Função que retorna o nome da tabela baseado no tipo do chat
 const getTableName = (tipo) => {
     const chatTables = {
         fisicas: "msgfisicas",
         intelectuais: "msgintelectuais",
         emocionais: "msgemocionais",
-        sensoriais: "msgsensoriais", // Adicionei msgsensoriais se for o tipo correto
+        sensoriais: "msgsensoriais",
         neurodivergentes: "msgneurodivergentes"
     };
     return chatTables[tipo] || null;
@@ -84,13 +80,13 @@ const getTableName = (tipo) => {
 
 // Função para buscar usuário por CPF
 const getUserByCpf = (cpf, callback) => {
-    db.query("SELECT id, nome FROM users WHERE cpf = ?", [cpf], (err, results) => {
+    db.query("SELECT id, nome, cpf FROM users WHERE cpf = ?", [cpf], (err, results) => {
         if (err) return callback(err, null);
         return callback(null, results.length > 0 ? results[0] : null);
     });
 };
 
-// Função para carregar mensagens anteriores de uma sala específica
+// Função para carregar mensagens anteriores
 const loadPreviousMessages = (socket, tipo) => {
     const tableName = getTableName(tipo);
     if (!tableName) {
@@ -98,24 +94,22 @@ const loadPreviousMessages = (socket, tipo) => {
         return;
     }
 
-    // Aqui, estamos fazendo um JOIN entre as tabelas de mensagens e a tabela de usuários
     db.query(
-        `SELECT users.nome, ${tableName}.message FROM ${tableName} 
+        `SELECT users.nome, users.cpf, ${tableName}.message FROM ${tableName} 
          INNER JOIN users ON ${tableName}.user_id = users.id 
          ORDER BY ${tableName}.id ASC`,
         (err, results) => {
             if (err) {
                 console.error("Erro ao carregar mensagens:", err);
             } else {
-                console.log("Mensagens carregadas:", results); // Log para depuração
-                socket.emit("previousMessages", results); // Envia para o cliente
+                socket.emit("previousMessages", results);
             }
         }
     );
 };
 
-// Função para inserir uma nova mensagem no banco na tabela correta
-const insertNewMessage = (socket, tipo, message, userId, userName) => {
+// Função para inserir nova mensagem
+const insertNewMessage = (socket, tipo, message, userId, userName, cpf) => {
     const tableName = getTableName(tipo);
     if (!tableName) {
         console.error("Tipo de chat inválido:", tipo);
@@ -129,13 +123,13 @@ const insertNewMessage = (socket, tipo, message, userId, userName) => {
             if (err) {
                 console.error("Erro ao inserir mensagem:", err);
             } else {
-                io.to(tipo).emit("newMessage", { name: userName, message }); // Envia para o cliente
+                io.to(tipo).emit("newMessage", { name: userName, message, cpf });
             }
         }
     );
 };
 
-// Gerenciando conexões de usuários
+// Gerenciando conexões socket
 io.on("connection", (socket) => {
     console.log("Usuário conectado");
 
@@ -154,6 +148,7 @@ io.on("connection", (socket) => {
             } else if (user) {
                 socket.userId = user.id;
                 socket.userName = user.nome;
+                socket.cpf = user.cpf;
                 socket.room = tipo;
                 socket.join(tipo);
                 socket.emit("cpfValid", { name: user.nome });
@@ -166,7 +161,14 @@ io.on("connection", (socket) => {
 
     socket.on("sendMessage", (data) => {
         if (socket.userId && socket.room) {
-            insertNewMessage(socket, socket.room, data.message, socket.userId, socket.userName);
+            insertNewMessage(
+                socket,
+                socket.room,
+                data.message,
+                socket.userId,
+                socket.userName,
+                socket.cpf
+            );
         }
     });
 
@@ -178,5 +180,3 @@ io.on("connection", (socket) => {
 server.listen(5000, () => {
     console.log("Servidor rodando na porta 5000");
 });
-
-//isso mesmo

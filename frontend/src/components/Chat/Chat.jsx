@@ -4,12 +4,11 @@ import io from "socket.io-client";
 import { motion } from "framer-motion";
 import styles from "./Chat.module.css";
 
-const socket = io("https://conexaofamiliar.onrender.com/", { autoConnect: false });
-
 const Chat = () => {
     const { tipo } = useParams();
     const navigate = useNavigate();
     const messagesEndRef = useRef(null);
+    const socketRef = useRef(null);
 
     const [cpf, setCpf] = useState("");
     const [isCpfValid, setIsCpfValid] = useState(true);
@@ -25,7 +24,15 @@ const Chat = () => {
             return;
         }
 
-        socket.connect();
+        if (!socketRef.current) {
+            socketRef.current = io("https://conexaofamiliar.onrender.com/");
+        }
+
+        const socket = socketRef.current;
+
+        socket.on("connect", () => {
+            console.log("Socket conectado");
+        });
 
         socket.on("cpfValid", (data) => {
             setUserName(data.name);
@@ -41,13 +48,16 @@ const Chat = () => {
         });
 
         socket.on("newMessage", (msg) => {
-            setMessages((prevMessages) => [...prevMessages, msg]);
+            setMessages((prev) => [...prev, msg]);
         });
 
         return () => {
-            socket.disconnect();
+            socket.off("cpfValid");
+            socket.off("cpfInvalid");
+            socket.off("previousMessages");
+            socket.off("newMessage");
         };
-    }, [tipo]);
+    }, [tipo, navigate]);
 
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -59,16 +69,16 @@ const Chat = () => {
             setIsCpfValid(false);
             return;
         }
-        socket.emit("joinChat", { tipo, cpf });
+        socketRef.current.emit("joinChat", { tipo, cpf });
     };
 
     const handleSendMessage = (e) => {
         e.preventDefault();
         if (newMessage.trim() === "") return;
 
-        if (socket.connected) {
-            socket.emit("sendMessage", { message: newMessage, tipo });
-            setNewMessage("");
+        if (socketRef.current.connected) {
+            socketRef.current.emit("sendMessage", { message: newMessage });
+            setNewMessage(""); // Evita duplicação
         } else {
             console.error("Socket não está conectado.");
         }
@@ -106,12 +116,12 @@ const Chat = () => {
                     />
                     <button type="submit">Entrar</button>
                     {!isCpfValid && <h2 className={styles.errorMessage}>CPF inválido ou não encontrado.</h2>}
-                    <br /> <br />
+                    <br /><br />
                     <button type="button" className={styles.backButton} onClick={handleBack}>Voltar</button>
                 </form>
             ) : (
                 <div className={styles.chatBox}>
-                    <h2>Bem-vindo, {userName}!</h2> <br />
+                    <h2>Bem-vindo, {userName}!</h2><br />
                     <div className={styles.messages}>
                         {messages.length === 0 ? (
                             <p className={styles.noMessages}>Nenhuma mensagem ainda. Envie a primeira!</p>
@@ -122,10 +132,10 @@ const Chat = () => {
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.3 }}
-                                    className={`${styles.message} ${msg.name === userName || msg.nome === userName ? styles.myMessage : styles.otherMessage}`}
-                                    style={msg.name !== userName && msg.nome !== userName ? { backgroundColor: getRandomColor(msg.name || msg.nome) } : {}}
+                                    className={`${styles.message} ${msg.cpf === cpf ? styles.myMessage : styles.otherMessage}`}
+                                    style={msg.cpf !== cpf ? { backgroundColor: getRandomColor(msg.name || msg.nome) } : {}}
                                 >
-                                    <strong>{msg.nome || msg.name}</strong> <br /> <br /> {msg.message}
+                                    <strong>{msg.nome || msg.name}</strong> <br /><br /> {msg.message}
                                 </motion.div>
                             ))
                         )}
