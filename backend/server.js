@@ -1,4 +1,4 @@
-// Código do servidor
+// Código do servidor (para testes)
 
 const express = require("express");
 const http = require("http");
