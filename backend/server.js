@@ -1,4 +1,4 @@
-// Código do servidor (rejuvenal)
+// Código do servidor
 
 const express = require("express");
 const http = require("http");
