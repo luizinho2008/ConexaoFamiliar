@@ -1,5 +1,3 @@
-// Código do servidor (capellini)
-
 const express = require("express");
 const http = require("http");
 const { Server } = require("socket.io");
@@ -22,7 +20,7 @@ app.use(express.json());
 const db = mysql.createConnection({
     host: "oo1bj.h.filess.io",
     user: "conexaofamiliar_headingsee",
-    password: "2e7e3cb20fb6960590f1681d35ee3096ecb8f8d3", // Insira sua senha do MySQL aqui
+    password: "2e7e3cb20fb6960590f1681d35ee3096ecb8f8d3",
     database: "conexaofamiliar_headingsee",
     port: "61002"
 });
@@ -123,7 +121,8 @@ const insertNewMessage = (socket, tipo, message, userId, userName, cpf) => {
             if (err) {
                 console.error("Erro ao inserir mensagem:", err);
             } else {
-                io.to(tipo).emit("newMessage", { name: userName, message, cpf });
+                // Corrigido: enviar 'nome' ao invés de 'name'
+                io.to(tipo).emit("newMessage", { nome: userName, message, cpf });
             }
         }
     );
